@@ -123,6 +123,19 @@ local function pick_scheme()
   end)
 end
 
+-- Small per-scheme colour tweaks, layered over the built-in schemes.
+local scheme_tweaks = {
+  -- stock text is dark olive (#3e5715): hard to read, so make it Matrix green
+  darkmatrix = { foreground = "#22e051" },
+}
+config.color_schemes = {}
+local builtin = wezterm.color.get_builtin_schemes()
+for name, tweak in pairs(scheme_tweaks) do
+  local s = builtin[name]
+  for k, v in pairs(tweak) do s[k] = v end
+  config.color_schemes[name] = s
+end
+
 config.color_scheme = read_scheme()
 
 -- Very slightly dim what doesn't have focus: split panes inside a window...
