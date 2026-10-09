@@ -18,6 +18,25 @@ config.macos_window_background_blur = 10
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
+-- config.background = {
+--   {
+--     source = { File ="/Users/gamcdonald/Downloads/877224.jpg" },
+--     width = "100%",
+--     height = "100%",
+--     horizontal_align = "Center",
+--     vertical_align = "Middle",
+--     repeat_x = "NoRepeat",
+--     repeat_y = "NoRepeat",
+--     hsb = {
+--       brightness = 0.5
+--     },
+--     attachment = "Fixed",
+--   },
+-- }
+
+config.enable_kitty_graphics = true
+config.enable_tab_bar = false
+
 config.keys = {
   -- clear scrollback and viewport
   {
@@ -28,7 +47,13 @@ config.keys = {
   -- Cycle to the next pane
     {key="RightArrow", mods="CMD", action=wezterm.action{ActivatePaneDirection="Next"}},
   -- Cycle to the previous pane
-    {key="LeftArrow", mods="CMD", action=wezterm.action{ActivatePaneDirection="Prev"}}
+    {key="LeftArrow", mods="CMD", action=wezterm.action{ActivatePaneDirection="Prev"}},
+    
+    {key="p", mods = "CTRL | SHIFT", action=wezterm.action.DisableDefaultAssignment},
+    {key="P", mods = "CTRL | SHIFT", action=wezterm.action.DisableDefaultAssignment},
+    {key="N", mods = "CTRL | SHIFT", action=wezterm.action.DisableDefaultAssignment},
+    {key="n", mods = "CTRL | SHIFT", action=wezterm.action.DisableDefaultAssignment},
+
   }
 
 -- my coolnight colorscheme:
